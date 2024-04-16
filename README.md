@@ -17,6 +17,7 @@ The code quality won't be the best at I am new to Python.
 
 ## Links
 * CrewAI
+    * [CrewAI Repo](https://github.com/joaomdmoura/crewai/)
     * [CrewAI Documentation](docs.crewai.com/how-to/)
     * [Claude AI](https://claude.ai/chat/)
     * [Google AI Studio](https://aistudio.google.com/)
