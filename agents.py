@@ -38,8 +38,8 @@ class CustomAgents:
 	def chief_qa_engineer_agent(self):
 		return Agent(
 			role='Chief Software Quality Control Engineer',
-		goal='Ensure that the code does the job that it is supposed to do',
-		backstory=dedent("""\
+			goal='Ensure that the code does the job that it is supposed to do',
+			backstory=dedent("""\
 				You feel that programmers always do only half the job, so you are
 				super dedicate to make high quality code."""),
 			allow_delegation=True,
