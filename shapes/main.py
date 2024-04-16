@@ -1,16 +1,17 @@
 import os
 from dotenv import load_dotenv
 from crewai import Crew
-from shapes.tasks import CustomTasks
-from shapes.agents import CustomAgents
+from tasks import CustomTasks
+from agents import CustomAgents
 
 load_dotenv()  # Load environment variables from .env
 
 def save_code(file_name, code):
 	output_dir = os.getenv("OUTPUT_DIR", "./workspace")
 	file_path = os.path.join(output_dir, file_name)
+
 	with open(file_path, "w") as f:
-		text_content = code  # Or use appropriate method to get text
+		text_content = code.content  # Or use appropriate method to get text
 		f.write(text_content)
 		print(f"Code saved to {file_path}.")
 
@@ -36,11 +37,12 @@ def main():
 
 	result = crew.kickoff()
 	print(result)
+	save_code("results.txt", result)
 
-	for task in crew.tasks:
-		if task.output:
-			file_name = f"{task.agent.role}.txt"  # Customize file names as needed
-			save_code(file_name, task.output)
+	# for task in crew.tasks:
+	# 	if task.output:
+	# 		file_name = f"{task.agent.role}.txt"  # Customize file names as needed
+	# 		save_code(file_name, task.output)
 
 if __name__ == "__main__":
 	main()
