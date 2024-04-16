@@ -11,7 +11,7 @@ def save_code(file_name, code):
 	file_path = os.path.join(output_dir, file_name)
 
 	with open(file_path, "w") as f:
-		text_content = code.content  # Or use appropriate method to get text
+		text_content = code  # Or use appropriate method to get text
 		f.write(text_content)
 		print(f"Code saved to {file_path}.")
 

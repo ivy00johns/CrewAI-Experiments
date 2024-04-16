@@ -3,6 +3,7 @@
 
 # Working directory
 workspace/*
+*/workspace/*
 
 #Cache folders
 __pycache__/
