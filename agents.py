@@ -2,9 +2,6 @@ from crewai import Agent
 from textwrap import dedent
 from langchain.llms import Ollama
 
-# This is an example of how to define custom agents.
-# You can define as many agents as you want.
-# You can also define custom tasks in tasks.py
 class CustomAgents:
 	def __init__(self):
 		self.Ollama = Ollama(model="codellama")
@@ -19,7 +16,7 @@ class CustomAgents:
 				produce perfect code"""),
 			allow_delegation=False,
 			verbose=True,
-			llm=self.Ollama,
+			llm=self.Ollama
 		)
 
 	def qa_engineer_agent(self):
@@ -35,7 +32,7 @@ class CustomAgents:
 				You also check for security vulnerabilities, and logic errors"""),
 			allow_delegation=False,
 			verbose=True,
-			llm=self.Ollama,
+			llm=self.Ollama
 		)
 
 	def chief_qa_engineer_agent(self):
@@ -46,5 +43,6 @@ class CustomAgents:
 				You feel that programmers always do only half the job, so you are
 				super dedicate to make high quality code."""),
 			allow_delegation=True,
-			verbose=True
+			verbose=True,
+			llm=self.Ollama
 		)
