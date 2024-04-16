@@ -1,7 +1,9 @@
 # CrewAI Playground
 ## Purpose
-This is my first project using the `CrewAI` framework. In this repo I have a number of example projects.
+This is my first project using the `CrewAI` framework.
+In this repo I have a number of example projects.
 The code quality won't be the best at I am new to Python.
+This project is setup to utilize `Ollama` for local LLMs.
 
 ## Projects
 1. **Shapes**
@@ -19,12 +21,15 @@ The code quality won't be the best at I am new to Python.
 * CrewAI
     * [CrewAI Repo](https://github.com/joaomdmoura/crewai/)
     * [CrewAI Documentation](docs.crewai.com/how-to/)
+* Ollama
+    * [Ollama Models](https://ollama.com/library)
+    * [CrewAI + Ollama](https://docs.crewai.com/how-to/LLM-Connections/)
+* AIs Under Test
     * [Claude AI](https://claude.ai/chat/)
     * [Google AI Studio](https://aistudio.google.com/)
-* AIs Under Test
     * [Microsoft CoPilot](https://copilot.microsoft.com/)
     * [Chatbot Arena: Benchmarking LLMs in the Wild](https://chat.lmsys.org)
 * YouTube
+    * [CrewAI Tutorial: Complete Crash Course for Beginners](https://youtu.be/sPzc6hMg7So?si=Q4GHPC249ZSAz_2k)
     * [CrewAI Tutorial - Next Generation AI Agent Teams (Fully Local)](https://youtu.be/tnejrr-0a94?si=P99KIsoWwZrE3cwS)
     * [The RIGHT WAY To Build AI Agents with CrewAI (BONUS: 100% Local)](https://youtu.be/iJjSjmZnNlI?si=Nc2q5T76h5VbOm4G)
-    * [CrewAI Tutorial: Complete Crash Course for Beginners](https://youtu.be/sPzc6hMg7So?si=Q4GHPC249ZSAz_2k)
