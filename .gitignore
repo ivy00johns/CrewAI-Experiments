@@ -1,7 +1,8 @@
-#ignore this in github
-
-# environment variables
+# Environment variables
 .env
+
+# Working directory
+workspace/*
 
 #Cache folders
 __pycache__/
