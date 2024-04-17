@@ -1,13 +1,13 @@
+import os
+
 from crewai import Agent
 from textwrap import dedent
 from langchain_community.llms import Ollama
-from tools.browser_tools import BrowserTools
-from tools.search_tools import SearchTools
-from tools.youtube_tools import YoutubeTranscriptTool
+from tools.youtube_tools import get_youtube_transcript
 
 class DataGatheringAgents:
 	def __init__(self):
-		self.Ollama = Ollama(model="codellama")  # Or any suitable LLM
+		self.Ollama = Ollama(model=f"{os.environ['MODEL_NAME']}")
 
 	def youtube_transcript_agent(self):
 		return Agent(
@@ -22,24 +22,6 @@ class DataGatheringAgents:
 			verbose=True,
 			llm=self.Ollama,
 			tools=[
-				YoutubeTranscriptTool.get_transcript
+				get_youtube_transcript
 			]
-		)
-
-	def web_scraping_agent(self):
-		return Agent(
-			role="Web Scraper",
-			goal="Extract information from websites and save it as structured text data",
-			backstory=dedent("""\
-				You are skilled at navigating the web and extracting relevant
-				information from websites. You can utilize web scraping techniques
-				and tools to gather text, data, and other content from specified
-				web pages and store it in a structured format for further use."""),
-			allow_delegation=False,
-			verbose=True,
-			llm=self.Ollama,
-			tools={
-				BrowserTools.scrape_and_summarize_website,
-				SearchTools.search_internet
-			}
 		)

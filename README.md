@@ -26,7 +26,8 @@ This project is setup to utilize `Ollama` for local LLMs.
 
 ## Links
 * CrewAI
-    * [CrewAI Repo](https://github.com/joaomdmoura/crewai/)
+    * [CrewAI](https://github.com/joaomdmoura/crewai/)
+    * [CrewAI Tools](https://github.com/joaomdmoura/crewAI-tools)
     * [CrewAI Documentation](docs.crewai.com/how-to/)
 * Ollama
     * [Ollama Models](https://ollama.com/library)
