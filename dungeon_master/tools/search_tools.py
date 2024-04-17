@@ -22,8 +22,8 @@ class SearchTools():
 		for result in results[:top_result_to_return]:
 			try:
 				string.append("\n".join([
-					f"Title: {result["title"]}", f"Link: {result["link"]}",
-					f"Snippet: {result["snippet"]}", "\n-----------------"
+					f"Title: {result['title']}", f"Link: {result['link']}",
+					f"Snippet: {result['snippet']}", "\n-----------------"
 				]))
 			except KeyError:
 				next
@@ -47,8 +47,8 @@ class SearchTools():
 		for result in results[:top_result_to_return]:
 			try:
 				string.append("\n".join([
-					f"Title: {result["title"]}", f"Link: {result["link"]}",
-					f"Snippet: {result["snippet"]}", "\n-----------------"
+					f"Title: {result['title']}", f"Link: {result['link']}",
+					f"Snippet: {result['snippet']}", "\n-----------------"
 				]))
 			except KeyError:
 				next
