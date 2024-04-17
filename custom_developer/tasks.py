@@ -2,6 +2,31 @@ from textwrap import dedent
 from crewai import Task
 
 class WebsiteTasks:
+	def basic_design_task(self, agent, website_description):
+		return Task(
+			description=dedent(f"""
+				**Website Design Task**
+
+				Design a basic website based on the following description:
+					{website_description}"""),
+			agent=agent,
+			expected_output="A basic design layout for the website."
+		)
+
+	def basic_development_task(self, agent, design_mockups):
+		return Task(
+			description="Develop a basic website based on the provided design.",
+			agent=agent,
+			expected_output="HTML, CSS, and JavaScript code for the basic website."
+		)
+
+	def basic_qa_task(self, agent, website_code):
+		return Task(
+			description="Test the basic website to ensure it functions as expected.",
+			agent=agent,
+			expected_output="A report on the basic website's functionality and any identified issues."
+		)
+
 	def design_task(self, agent, website_description):
 		return Task(
 			description=dedent(f"""
