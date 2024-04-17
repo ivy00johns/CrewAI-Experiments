@@ -14,8 +14,8 @@ print("-" * 40)
 task_choice = input("Choose task (1 - YouTube Transcript, 2 - Web Scraping): ")
 
 if task_choice == "1":
-	youtube_url = input("Enter the YouTube video URL: ")
-	task = tasks.youtube_transcript_task(agents.youtube_transcript_agent(), youtube_url)
+	url = input("Enter the YouTube video URL: ")
+	task = tasks.youtube_transcript_task(agents.youtube_transcript_agent(), url)
 elif task_choice == "2":
 	exit()
 else:

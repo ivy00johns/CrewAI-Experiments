@@ -2,13 +2,13 @@ from langchain.tools import tool
 from youtube_transcript_api import YouTubeTranscriptApi
 
 @tool("Get YouTube Transcript")
-def get_youtube_transcript(youtube_url):
+def get_youtube_transcript(url):
 	"""
 	Extracts the transcript from a YouTube video given its URL. 
 	"""
 	try:
 		# Extract video ID from URL
-		video_id = youtube_url.split("v=")[1]
+		video_id = url.split("v=")[1]
 
 		# Fetch transcript using youtube_transcript_api
 		transcript_list = YouTubeTranscriptApi.get_transcript(video_id)
