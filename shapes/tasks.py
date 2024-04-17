@@ -10,7 +10,7 @@ class CustomTasks:
 			- A container where the shapes will be displayed.
 			""",
 			agent=agent,
-			expected_output="HTML code for the webpage structure"  # Added expected output
+			expected_output="HTML code for the webpage structure"
 		)
 
 	def style_webpage(self, agent):
@@ -22,7 +22,7 @@ class CustomTasks:
 			- Position the shapes within the container.
 			""",
 			agent=agent,
-			expected_output="CSS code for styling the webpage elements"  # Added expected output
+			expected_output="CSS code for styling the webpage elements"
 		)
 
 	def implement_javascript(self, agent, num_shapes):
@@ -35,5 +35,5 @@ class CustomTasks:
 			- Start, stop, and reset the animation based on button clicks.
 			""",
 			agent=agent,
-			expected_output="JavaScript code for interactivity and animation"  # Added expected output
+			expected_output="JavaScript code for interactivity and animation"
 		)

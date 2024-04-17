@@ -1,11 +1,11 @@
 from crewai import Agent
 from langchain_community.llms import Ollama
 
-class CustomAgents:
+class JavaScriptAgents:
 	def __init__(self):
 		self.Ollama = Ollama(model="codellama")
 
-	def senior_engineer_agent(self):
+	def senior_javascript_engineer_agent(self):
 		return Agent(
 			role="Senior JavaScript Engineer",
 			goal="Develop high-quality, efficient, and scalable JavaScript applications.",
@@ -22,7 +22,7 @@ class CustomAgents:
 			llm=self.Ollama
 		)
 
-	def qa_engineer_agent(self):
+	def javascript_qa_engineer_agent(self):
 		return Agent(
 			role="JavaScript Quality Assurance Engineer",
 			goal="Identify and eliminate defects in JavaScript code to ensure application stability and functionality.",
@@ -40,7 +40,7 @@ class CustomAgents:
 			llm=self.Ollama
 		)
 
-	def chief_qa_engineer_agent(self):
+	def chief_javascript_qa_engineer_agent(self):
 		return Agent(
 			role="Chief JavaScript Quality Assurance Engineer",
 			goal="Lead and oversee the quality assurance process for JavaScript projects, ensuring adherence to best practices and the delivery of exceptional software.",

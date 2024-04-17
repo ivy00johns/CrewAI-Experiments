@@ -1,39 +1,59 @@
 from crewai import Task
 
-class CustomTasks:
-	def create_html_structure(self, agent, num_shapes):
+class WebsiteTasks:
+	def design_task(self, agent, website_description):
 		return Task(
-			description=f"""
-			Create the HTML structure for a webpage with:
-			- An input field to specify the number of shapes (default to {num_shapes}).
-			- Buttons for 'Start,' 'Stop,' and 'Reset.'
-			- A container where the shapes will be displayed.
-			""",
-			agent=agent,
-			expected_output="HTML code for the webpage structure"  # Added expected output
+			description=(f"""
+				**Website Design Task**
+
+				**Client Description:**
+				{website_description}
+
+				**Your Role:** UI/UX Designer
+
+				**Objective:** Create a visually appealing and user-friendly design concept for the website. Consider the target audience, website goals, and overall user experience. 
+
+				**Deliverables:**
+				*   Low-fidelity wireframes or sketches outlining the website layout and structure.
+				*   High-fidelity mockups showcasing the visual design, including colors, typography, and imagery.
+				*   A brief explanation of your design choices and how they address the client's needs and user experience considerations."""),
+			agent=agent
 		)
 
-	def style_webpage(self, agent):
+	def frontend_development_task(self, agent):
 		return Task(
-			description="""
-			Style the HTML elements with CSS to:
-			- Set a fixed size for the container.
-			- Make the shapes circular with a specified size and color.
-			- Position the shapes within the container.
-			""",
-			agent=agent,
-			expected_output="CSS code for styling the webpage elements"  # Added expected output
+			description=("""\
+				**Frontend Development Task**
+
+				**Design Mockups:**
+				(Please refer to the provided design mockups)
+
+				**Your Role:** Senior Frontend Engineer
+
+				**Objective:** Develop the frontend of the website using HTML, CSS, and JavaScript, bringing the provided design mockups to life. Ensure the website is responsive, interactive, and follows best practices for performance and accessibility.
+
+				**Deliverables:**
+				*   Clean and well-structured HTML, CSS, and JavaScript code.
+				*   Implementation of interactive elements and functionalities as per the design specifications.
+				*   A responsive layout that adapts seamlessly to different screen sizes and devices."""),
+			agent=agent
 		)
 
-	def implement_javascript(self, agent, num_shapes):
+	def frontend_qa_task(self, agent):
 		return Task(
-			description=f"""
-			Implement JavaScript code to:
-			- Get the user input for the number of shapes.
-			- Create {num_shapes} shapes with random initial positions and directions.
-			- Animate the shapes to bounce around the container.
-			- Start, stop, and reset the animation based on button clicks.
-			""",
-			agent=agent,
-			expected_output="JavaScript code for interactivity and animation"  # Added expected output
+			description=("""\
+				**Frontend Quality Assurance Task**
+
+				**Website Code:**
+				(The frontend code will be provided for testing)
+
+				**Your Role:** Frontend Quality Assurance Engineer
+
+				**Objective:** Thoroughly test the frontend of the website to identify and report any bugs, usability issues, or inconsistencies with the design specifications.
+
+				**Deliverables:**
+				*   A detailed report outlining any identified issues, including steps to reproduce them.
+				*   Screenshots or video recordings demonstrating the problems encountered.
+				*   Recommendations for fixing the issues and improving the overall quality of the frontend."""),
+			agent=agent
 		)

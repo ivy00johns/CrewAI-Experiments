@@ -1,46 +1,55 @@
-import os
 from dotenv import load_dotenv
+load_dotenv()
+
 from crewai import Crew
-from shapes.tasks import CustomTasks
-from shapes.agents import CustomAgents
+from tasks import WebsiteTasks
+from frontend_agents import FrontendAgents
 
-load_dotenv()  # Load environment variables from .env
+# Initialize tasks and agents
+tasks = WebsiteTasks()
+agents = FrontendAgents()
 
-def save_code(file_name, code):
-	output_dir = os.getenv("OUTPUT_DIR", "./workspace")
-	file_path = os.path.join(output_dir, file_name)
-	with open(file_path, "w") as f:
-		text_content = code  # Or use appropriate method to get text
-		f.write(text_content)
-		print(f"Code saved to {file_path}.")
+print("## Welcome to the Website Development Crew")
+print("-" * 40)
+website_description = input("Describe the website you want to create: What is its purpose and target audience?\n")
 
-def main():
-	num_shapes = 10  # Default number of shapes
+# Create Agents
+ui_ux_designer = agents.ui_ux_designer_agent()
+senior_frontend_engineer = agents.senior_frontend_engineer_agent()
+frontend_qa_engineer = agents.frontend_qa_engineer_agent()
 
-	agents = CustomAgents()
-	tasks = CustomTasks()
+# Create Tasks
+design_phase = tasks.design_task(ui_ux_designer, website_description)
+development_phase = tasks.frontend_development_task(senior_frontend_engineer, design_phase.output)  
+qa_phase = tasks.frontend_qa_task(frontend_qa_engineer, development_phase.output)
 
-	html_engineer = agents.html_engineer_agent()
-	css_stylist = agents.css_stylist_agent()
-	js_developer = agents.javascript_developer_agent()
+# Create Crew
+website_crew = Crew(
+	agents=[
+		ui_ux_designer,
+		senior_frontend_engineer,
+		frontend_qa_engineer
+	],
+	tasks=[
+		design_phase,
+		development_phase,
+		qa_phase
+	],
+	verbose=True
+)
 
-	create_html_task = tasks.create_html_structure(html_engineer, num_shapes)
-	style_webpage_task = tasks.style_webpage(css_stylist)
-	implement_js_task = tasks.implement_javascript(js_developer, num_shapes)
+final_result = website_crew.kickoff()
 
-	crew = Crew(
-		agents=[html_engineer, css_stylist, js_developer],
-		tasks=[create_html_task, style_webpage_task, implement_js_task],
-		verbose=True
-	)
+# Print results
+print("\n\n########################")
+print("## Website Development Summary")
+print("########################\n")
 
-	result = crew.kickoff()
-	print(result)
+print("**Design Phase Output:**")
+print(design_phase.output)
 
-	for task in crew.tasks:
-		if task.output:
-			file_name = f"{task.agent.role}.txt"  # Customize file names as needed
-			save_code(file_name, task.output)
+print("\n**Development Phase Output:**")
+print(development_phase.output)
 
-if __name__ == "__main__":
-	main()
+print("\n**QA Phase Output:**")
+print(qa_phase.output) 
