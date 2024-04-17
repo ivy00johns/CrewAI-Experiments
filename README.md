@@ -38,6 +38,6 @@ This project is setup to utilize `Ollama` for local LLMs.
 [Examples](EXAMPLES.md)
 
 ### TO-DO
-[ ] Add the ability to select between a complex and simple website output.
-[ ] Add the ability to save the generated code to disk.
-[ ] Reduce the number of tokens used by remove repetitive chat messages between the agents.
+- [ ] Add the ability to select between a complex and simple website output.
+- [ ] Add the ability to save the generated code to disk.
+- [ ] Reduce the number of tokens used by remove repetitive chat messages between the agents.
