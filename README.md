@@ -5,6 +5,13 @@ In this repo I have a number of example projects.
 The code quality won't be the best at I am new to Python.
 This project is setup to utilize `Ollama` for local LLMs.
 
+## Setup
+1. `pip install crewai`
+2. `pip install 'crewai[tools]'`
+3. `cp .env_example .env`
+    * Set the necessary variables.
+4. Open a `main.py` file and click on play in the upper right hand corner.
+
 ## Projects
 1. **Shapes**
     * This is the 1st project I worked on to test out `CrewAI`.
