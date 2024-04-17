@@ -1,7 +1,7 @@
+from langchain.tools import tool
 from youtube_transcript_api import YouTubeTranscriptApi
-from crewai_tools import tool
 
-@tool("Get Youtube Transcript")
+@tool("Get YouTube Transcript")
 def get_youtube_transcript(youtube_url):
 	"""
 	Extracts the transcript from a YouTube video given its URL. 

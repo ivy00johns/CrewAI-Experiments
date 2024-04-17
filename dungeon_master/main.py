@@ -12,10 +12,10 @@ print("## DnD DM Assistant Data Gathering")
 print("-" * 40)
 
 task_choice = input("Choose task (1 - YouTube Transcript, 2 - Web Scraping): ")
-url = input("Enter the URL: ")
 
 if task_choice == "1":
-	task = tasks.youtube_transcript_task(agents.youtube_transcript_agent(), url)
+	youtube_url = input("Enter the YouTube video URL: ")
+	task = tasks.youtube_transcript_task(agents.youtube_transcript_agent(), youtube_url)
 elif task_choice == "2":
 	exit()
 else:
