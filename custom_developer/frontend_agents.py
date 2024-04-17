@@ -1,4 +1,5 @@
 from crewai import Agent
+from textwrap import dedent
 from langchain_community.llms import Ollama
 
 class FrontendAgents:
@@ -9,7 +10,7 @@ class FrontendAgents:
 		return Agent(
 			role="Senior Frontend Engineer",
 			goal="Develop high-quality, efficient, and scalable user interfaces using JavaScript and modern frontend frameworks.",
-			backstory=("""\
+			backstory=dedent("""\
 				You are a seasoned frontend engineer with extensive experience
 				in building web applications using JavaScript, HTML, and CSS.
 				You possess a deep understanding of frontend frameworks like
@@ -26,7 +27,7 @@ class FrontendAgents:
 		return Agent(
 			role="Frontend Quality Assurance Engineer",
 			goal="Ensure the quality and functionality of user interfaces through rigorous testing and attention to detail.",
-			backstory=("""\
+			backstory=dedent("""\
 				You are a meticulous frontend QA engineer with a keen eye for
 				detail and a passion for delivering flawless user experiences.
 				You excel at manual and automated testing techniques, including
@@ -44,7 +45,7 @@ class FrontendAgents:
 		return Agent(
 			role="UI/UX Designer",
 			goal="Create visually appealing and user-friendly interfaces that enhance the overall user experience.",
-			backstory=("""\
+			backstory=dedent("""\
 				You are a talented UI/UX designer with a passion for creating
 				intuitive and engaging user experiences. You have a strong
 				understanding of design principles, user-centered design

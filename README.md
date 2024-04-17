@@ -33,3 +33,6 @@ This project is setup to utilize `Ollama` for local LLMs.
     * [CrewAI Tutorial: Complete Crash Course for Beginners](https://youtu.be/sPzc6hMg7So?si=Q4GHPC249ZSAz_2k)
     * [CrewAI Tutorial - Next Generation AI Agent Teams (Fully Local)](https://youtu.be/tnejrr-0a94?si=P99KIsoWwZrE3cwS)
     * [The RIGHT WAY To Build AI Agents with CrewAI (BONUS: 100% Local)](https://youtu.be/iJjSjmZnNlI?si=Nc2q5T76h5VbOm4G)
+
+## Example Output
+[Examples](EXAMPLES.md)
