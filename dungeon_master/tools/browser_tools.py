@@ -24,16 +24,13 @@ class BrowserTools():
 
 		for chunk in content:
 			agent = Agent(
-					role="Principal Researcher",
-					goal=
-					"Do amazing research and summaries based on the content you are working with",
-					backstory=
-					"You're a Principal Researcher at a big company and you need to do research about a given topic.",
-					allow_delegation=False)
+				role="Principal Researcher",
+				goal="Do amazing research and summaries based on the content you are working with",
+				backstory="You're a Principal Researcher at a big company and you need to do research about a given topic.",
+				allow_delegation=False)
 			task = Task(
-					agent=agent,
-					description=
-					f"Analyze and summarize the content below, make sure to include the most relevant information in the summary, return only the summary nothing else.\n\nCONTENT\n----------\n{chunk}"
+				agent=agent,
+				description=f"Analyze and summarize the content below, make sure to include the most relevant information in the summary, return only the summary nothing else.\n\nCONTENT\n----------\n{chunk}"
 			)
 			summary = task.execute()
 			summaries.append(summary)
