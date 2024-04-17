@@ -1,5 +1,7 @@
 from crewai import Agent
 from langchain_community.llms import Ollama
+from tools.browser_tools import BrowserTools
+from tools.search_tools import SearchTools
 
 class DataGatheringAgents:
 	def __init__(self):
@@ -16,8 +18,8 @@ class DataGatheringAgents:
 			verbose=True,
 			llm=self.Ollama,
 			tools={
-				"youtube_api": "youtube_transcript_api",  # Placeholder for actual API or tool
-				"file_saver": "save_to_txt"  # Placeholder for file saving functionality
+				BrowserTools.scrape_and_summarize_website,
+        		SearchTools.search_internet
 			}
 		)
 
@@ -32,7 +34,7 @@ class DataGatheringAgents:
 			verbose=True,
 			llm=self.Ollama,
 			tools={
-				"web_scraper": "beautiful_soup",  # Placeholder for a scraping library like Beautiful Soup
-				"file_saver": "save_to_txt"
+				BrowserTools.scrape_and_summarize_website,
+        		SearchTools.search_internet
 			}
 		)
