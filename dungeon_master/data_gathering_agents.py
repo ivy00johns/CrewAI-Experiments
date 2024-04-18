@@ -15,10 +15,10 @@ class DataGatheringAgents:
 			role="YouTube Transcript Extractor",
 			goal="Download and save transcripts from YouTube videos as .txt files",
 			backstory=dedent("""\
-				You are an expert at extracting information from YouTube videos.
-				You can utilize various tools and APIs to download video
-					transcripts and save them in a structured text format for
-					further processing and analysis."""),
+				You are an expert at extracting information from YouTube videos. 
+				You can utilize tools like the 'youtube_transcript_api' library to download video transcripts in various formats, including plain text, SRT, and VTT. 
+				You are adept at handling errors and cases where transcripts are not available, and you can even extract timestamps and identify speakers within the transcripts. 
+			"""),
 			allow_delegation=False,
 			verbose=True,
 			llm=self.Ollama,
@@ -32,10 +32,10 @@ class DataGatheringAgents:
 			role="Web Scraper",
 			goal="Extract information from websites and save it as text files",
 			backstory=dedent("""\
-				You are skilled at extracting information from websites
-					using web scraping techniques.
-				You can navigate through HTML structures and gather text content,
-					saving it for further processing."""),
+				You are skilled at extracting information from websites using various web scraping techniques, including HTML parsing, CSS selectors, and XPath expressions.
+				You can effectively gather text content, tables, images, and links from diverse website structures and layouts.
+				You are also adept at bypassing anti-scraping measures like CAPTCHAs and IP blocking to access valuable data.
+			"""),
 			allow_delegation=False,
 			verbose=True,
 			llm=self.Ollama,
