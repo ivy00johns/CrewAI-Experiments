@@ -37,7 +37,8 @@ This project is setup to utilize `Ollama` for local LLMs.
     * [Claude AI](https://claude.ai/chat/)
     * [Google AI Studio](https://aistudio.google.com/)
     * [Microsoft CoPilot](https://copilot.microsoft.com/)
-    * [Chatbot Arena: Benchmarking LLMs in the Wild](https://chat.lmsys.org)
+    * [Chatbot Arena: Benchmarking LLMs in the Wild](https://chat.lmsys.org/)
+    * [Meta AI - Lllama3](https://www.meta.ai/)
 * YouTube
     * [CrewAI Tutorial: Complete Crash Course for Beginners](https://youtu.be/sPzc6hMg7So?si=Q4GHPC249ZSAz_2k)
     * [CrewAI Tutorial - Next Generation AI Agent Teams (Fully Local)](https://youtu.be/tnejrr-0a94?si=P99KIsoWwZrE3cwS)
