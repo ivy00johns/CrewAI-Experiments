@@ -21,7 +21,7 @@ def get_youtube_transcript(url):
 		# Get working directory from environment variable
 		output_directory = os.getenv("OUTPUT_DIR")
 		if not output_directory:
-			raise ValueError("OUTPUT_DIR environment variable not set")
+			raise ValueError("OUTPUT_DIR environment variable not set.")
 
 		# Construct full file path
 		file_path = os.path.join(output_directory, f"{safe_filename}.txt")
