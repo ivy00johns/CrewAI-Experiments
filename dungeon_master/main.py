@@ -17,7 +17,9 @@ if task_choice == "1":
 	url = input("Enter the YouTube video URL: ")
 	task = tasks.youtube_transcript_task(agents.youtube_transcript_agent(), url)
 elif task_choice == "2":
-	exit()
+	website_url = input("Enter the website URL: ")
+	filename = input("Enter the desired filename for the extracted content: ")
+	task = tasks.web_scraping_task(agents.web_scraping_agent(), website_url, filename) 
 else:
 	print("Invalid choice. Exiting.")
 	exit()
