@@ -2,11 +2,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from crewai import Crew
-from data_gathering_agents import DataGatheringAgents
+from agents import DataGatheringAgents
 from tasks import DataGatheringTasks
 
-agents = DataGatheringAgents()
-tasks = DataGatheringTasks()
+dataAgents = DataGatheringAgents()
+dataTasks = DataGatheringTasks()
 
 print("## DnD DM Assistant Data Gathering")
 print("-" * 40)
@@ -15,11 +15,11 @@ task_choice = input("Choose task (1 - YouTube Transcript, 2 - Web Scraping): ")
 
 if task_choice == "1":
 	url = input("Enter the YouTube video URL: ")
-	task = tasks.youtube_transcript_task(agents.youtube_transcript_agent(), url)
+	task = dataTasks.youtube_transcript_task(dataAgents.youtube_transcript_agent(), url)
 elif task_choice == "2":
 	website_url = input("Enter the website URL: ")
 	filename = input("Enter the desired filename for the extracted content: ")
-	task = tasks.web_scraping_task(agents.web_scraping_agent(), website_url, filename) 
+	task = dataTasks.web_scraping_task(dataAgents.web_scraping_agent(), website_url, filename) 
 else:
 	print("Invalid choice. Exiting.")
 	exit()

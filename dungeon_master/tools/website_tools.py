@@ -4,6 +4,7 @@ import requests
 
 from bs4 import BeautifulSoup
 from langchain.tools import tool
+from helpers import is_already_downloaded, download_file 
 
 @tool("Scrape Website")
 def scrape_website(url, filename):
@@ -88,3 +89,82 @@ def search_news(query):
 			next
 
 	return "\n".join(string)
+
+@tool("Google Search")
+def google_search(query): 
+	"""
+	Searches the web using the Google Custom Search JSON API.
+	""" 
+	api_key = os.environ.get("GOOGLE_API_KEY")
+	search_engine_id = os.environ.get("GOOGLE_SEARCH_ENGINE_ID")
+
+	if not api_key or not search_engine_id:
+		return "Error: Missing GOOGLE_API_KEY or GOOGLE_SEARCH_ENGINE_ID environment variables."
+
+	url = f"https://www.googleapis.com/customsearch/v1?key={api_key}&cx={search_engine_id}&q={query}"
+
+	try:
+		response = requests.get(url)
+		response.raise_for_status()
+
+		results = response.json()
+		items = results.get("items", [])
+
+		if items:
+			return "\n".join([f"{item['title']}: {item['link']}" for item in items[:5]])  # Return top 5 results
+		else: 
+			return "No results found."
+	except Exception as e:
+		return f"Error during web search: {e}"
+
+@tool("Archive.org DnD Content Downloader")
+def download_dnd_content(search_term, output_directory):
+	"""
+	Searches archive.org for DnD content using the advanced search API and downloads relevant files, avoiding duplicates.
+	"""
+	try:
+		# Construct the advanced search API URL
+		base_url = "https://archive.org/advancedsearch.php"
+		params = {
+			"q": search_term,
+			"fl[]": "identifier, format, name",  # Retrieve relevant fields
+			"rows": "50",  # Number of results per page (adjust as needed)
+			"page": "1",
+			"output": "json",
+			"callback": "callback",
+			"save": "yes"
+		}
+		response = requests.get(base_url, params=params)
+		response.raise_for_status()
+
+		# Extract JSON data from the response (handling the 'callback(...)' wrapper)
+		json_data = json.loads(response.text[9:-1])  
+
+		# Process search results and download files
+		downloaded_files = []
+		for item in json_data["response"]["docs"]:
+			identifier = item["identifier"]
+			name = item["name"]
+			format = item["format"]
+
+			# Check if already downloaded (implement your chosen method here)
+			if is_already_downloaded(identifier, output_directory):
+				continue  
+
+			# Prioritize .txt, then consider other formats
+			if format == "Text":
+				file_url = f"https://archive.org/download/{identifier}/{name}.txt"
+			elif format in ["PDF", "Torrent"]:
+				# Handle other formats as needed
+				pass
+			else: 
+				continue  # Skip unsupported formats
+
+			# Download the file (implement download logic here)
+			download_file(file_url, output_directory, name)
+			downloaded_files.append(name)
+
+		return f"Downloaded {len(downloaded_files)} files: {downloaded_files}" 
+
+	except Exception as e:
+		return f"Error downloading content: {e}"
